@@ -5,21 +5,21 @@ string doska[9][9];
 struct Figura {
   string K, k, Q, q, R, r, N, n, B, b, P, p;
   Figura()
-      : K{"K"}, k{"k"}, Q{"Q"}, q{"q"}, R{"R"}, r{"r"}, N{"N"}, n{"n"}, B{"B"}, b{"b"}, P{"P"}, p {"p"}
+      : K{"K"}, k{"k"}, Q{"Q"}, q{"q"}, R{"R"}, r{"r"}, N{"N"}, n{"n"}, B{"B"}, b{"b"}, P{"P"}, p {"p"}{}
 };
 
 void doska_print() {
   char num = 'a';
   for (int i = 0; i < 8; i++) {
-    cout « "\t" « 8 - i;
+    cout <<"\t" << 8 - i;
     for (int j = 0; j < 9; j++) {
-      cout « doska[i][j];
+      cout << doska[i][j];
     }
-    cout « endl;
+    cout << endl;
   }
-  cout « "\t";
+  cout << "\t";
   for (int i = 1; i < 9; i++) {
-    cout « " " « num;
+    cout << "  " << num;
     ++num;
   }
 }
@@ -28,7 +28,7 @@ void doska_default() {
   Figura f;
   for (int i = 0; i < 8; i++) {
     for (int j = 1; j < 9; j++) {
-      doska[i][j] = " ";
+      doska[i][j] = "  ";
     }
   }
   for (int i = 1; i < 9; i++) {
