@@ -311,7 +311,7 @@ int mamba(int x, int y, int &x1, int &y1)
 {
     y1 = 8 - y;
     x1 = 8 - (104 - x);
-    z = x1+y1;
+    int z = x1+y1;
     return z;
 }
 
