@@ -4,7 +4,7 @@
 using namespace std;
 
 string buff, doska[9][9];
-bool flag_buff = false, doska_b[9][9];
+bool doska_b[9][9];
 
 struct Figura {
     string K, k, Q, q, R, r, N, n, B, b, P, p;
@@ -92,7 +92,7 @@ void doska_figura_remove(int x, int y)
     doska[8 - y][8 - (104 - x)] = "   ";
 }
 
-void Ppawn_hod(int x, int y, int& x1, int& y1)
+bool Ppawn_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
 {
     int h;
     if (y1 > 8 - y) {
@@ -110,9 +110,10 @@ void Ppawn_hod(int x, int y, int& x1, int& y1)
         cout << "Неправильный ввод:введите только вторую измененную координату "
                 "хода пешки (вид: a3) \n";
     }
+    return flag_buff;
 }
 
-void Rrook_hod(int x, int y, int& x1, int& y1)
+bool Rrook_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
 {
     if (8 - (104 - x) == x1 || 8 - y == y1) {
         doska[8 - y][8 - (104 - x)] = buff;
@@ -123,9 +124,10 @@ void Rrook_hod(int x, int y, int& x1, int& y1)
         cout << "Неправильный ввод:введите только вторую измененную координату "
                 "хода ладьи (вид: a3)\n";
     }
+    return flag_buff;
 }
 
-void Nknight_hod(int x, int y, int& x1, int& y1)
+bool Nknight_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
 {
     int h, h1;
     if (x1 > 8 - (104 - x)) {
@@ -172,9 +174,10 @@ void Nknight_hod(int x, int y, int& x1, int& y1)
         cout << "Неправильный ввод:введите только вторую измененную координату "
                 "хода коня (вид: a3)\n";
     }
+    return flag_buff;
 }
 
-void Bbishop_hod(int x, int y, int& x1, int& y1)
+bool Bbishop_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
 {
     int h, h1;
     if (x1 != 8 - (104 - x) || y1 != 8 - y) {
@@ -203,9 +206,10 @@ void Bbishop_hod(int x, int y, int& x1, int& y1)
         cout << "Неправильный ввод:введите только вторую измененную координату "
                 "хода слона (вид: a3)\n";
     }
+    return flag_buff;
 }
 
-void Qqueen_hod(int x, int y, int& x1, int& y1)
+bool Qqueen_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
 {
     int h, h1;
     if (8 - (104 - x) == x1 || 8 - y == y1) {
@@ -236,9 +240,10 @@ void Qqueen_hod(int x, int y, int& x1, int& y1)
                     "координату хода королевы (вид: a3)\n";
         }
     }
+    return flag_buff;
 }
 
-void Kking_hod(int x, int y, int& x1, int& y1)
+void Kking_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
 {
     int h, h1;
     if (x1 > 8 - (104 - x)) {
@@ -302,13 +307,15 @@ void Kking_hod(int x, int y, int& x1, int& y1)
     }
 }
 
-void mamba(int x, int y, int& x1, int& y1)
+int mamba(int x, int y, int &x1, int &y1)
 {
     y1 = 8 - y;
     x1 = 8 - (104 - x);
+    z = x1+y1;
+    return z;
 }
 
-void doska_hod(int x, int y, int& x1, int& y1, int& sum_hod)
+void doska_hod(int x, int y, int &x1, int &y1, int &sum_hod, bool &flag_buff)
 {
     Figura f;
     if (y > 9 || y < 0) {
@@ -326,22 +333,22 @@ void doska_hod(int x, int y, int& x1, int& y1, int& sum_hod)
         } else {
             if (flag_buff == true) {
                 if (buff == " " + f.p + " " || buff == " " + f.P + " ") {
-                    Ppawn_hod(x, y, x1, y1);
+                    Ppawn_hod(x, y, x1, y1, flag_buff);
                 }
                 if (buff == " " + f.r + " " || buff == " " + f.R + " ") {
-                    Rrook_hod(x, y, x1, y1);
+                    Rrook_hod(x, y, x1, y1, flag_buff);
                 }
                 if (buff == " " + f.n + " " || buff == " " + f.N + " ") {
-                    Nknight_hod(x, y, x1, y1);
+                    Nknight_hod(x, y, x1, y1, flag_buff);
                 }
                 if (buff == " " + f.b + " " || buff == " " + f.B + " ") {
-                    Bbishop_hod(x, y, x1, y1);
+                    Bbishop_hod(x, y, x1, y1, flag_buff);
                 }
                 if (buff == " " + f.q + " " || buff == " " + f.Q + " ") {
-                    Qqueen_hod(x, y, x1, y1);
+                    Qqueen_hod(x, y, x1, y1, flag_buff);
                 }
                 if (buff == " " + f.k + " " || buff == " " + f.K + " ") {
-                    Kking_hod(x, y, x1, y1);
+                    Kking_hod(x, y, x1, y1, flag_buff);
                 }
                 doska_print(sum_hod);
             }
