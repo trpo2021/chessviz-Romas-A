@@ -92,7 +92,7 @@ void doska_figura_remove(int x, int y)
     doska[8 - y][8 - (104 - x)] = "   ";
 }
 
-bool Ppawn_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
+bool Ppawn_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
 {
     int h;
     if (y1 > 8 - y) {
@@ -113,7 +113,7 @@ bool Ppawn_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
     return flag_buff;
 }
 
-bool Rrook_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
+bool Rrook_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
 {
     if (8 - (104 - x) == x1 || 8 - y == y1) {
         doska[8 - y][8 - (104 - x)] = buff;
@@ -127,7 +127,7 @@ bool Rrook_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
     return flag_buff;
 }
 
-bool Nknight_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
+bool Nknight_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
 {
     int h, h1;
     if (x1 > 8 - (104 - x)) {
@@ -177,7 +177,7 @@ bool Nknight_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
     return flag_buff;
 }
 
-bool Bbishop_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
+bool Bbishop_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
 {
     int h, h1;
     if (x1 != 8 - (104 - x) || y1 != 8 - y) {
@@ -209,7 +209,7 @@ bool Bbishop_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
     return flag_buff;
 }
 
-bool Qqueen_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
+bool Qqueen_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
 {
     int h, h1;
     if (8 - (104 - x) == x1 || 8 - y == y1) {
@@ -243,7 +243,7 @@ bool Qqueen_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
     return flag_buff;
 }
 
-void Kking_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
+void Kking_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
 {
     int h, h1;
     if (x1 > 8 - (104 - x)) {
@@ -307,15 +307,15 @@ void Kking_hod(int x, int y, int &x1, int &y1, bool &flag_buff)
     }
 }
 
-int mamba(int x, int y, int &x1, int &y1)
+int mamba(int x, int y, int& x1, int& y1)
 {
     y1 = 8 - y;
     x1 = 8 - (104 - x);
-    int z = x1+y1;
+    int z = x1 + y1;
     return z;
 }
 
-void doska_hod(int x, int y, int &x1, int &y1, int &sum_hod, bool &flag_buff)
+void doska_hod(int x, int y, int& x1, int& y1, int& sum_hod, bool& flag_buff)
 {
     Figura f;
     if (y > 9 || y < 0) {
