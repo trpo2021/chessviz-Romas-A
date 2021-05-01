@@ -121,4 +121,3 @@ CTEST(znacheniya, 11test)
     int exp = 11;
     ASSERT_EQUAL(exp, real);
 }
-
