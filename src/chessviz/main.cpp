@@ -16,4 +16,3 @@ int main()
         doska_hod(stb, str, x1, y1, sum_hod, flag_buff);
     }
     return 0;
-
