@@ -5,8 +5,8 @@ using namespace std;
 
 string buff, doska[9][9];
 bool doska_b[9][9];
-const int max_coordinate_number=8;
-const int max_number_character=104;
+const int max_coordinate_number = 8;
+const int max_number_character = 104;
 
 struct Figura {
     string K, k, Q, q, R, r, N, n, B, b, P, p;
@@ -91,7 +91,9 @@ void doska_default(int& sum_hod)
 
 void doska_figura_remove(int x, int y)
 {
-    doska[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = "   ";
+    doska[max_coordinate_number - y]
+         [max_coordinate_number - (max_number_character - x)]
+            = "   ";
 }
 
 bool Ppawn_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
@@ -104,8 +106,12 @@ bool Ppawn_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
         h = (max_coordinate_number - y) - y1;
     }
     if (max_coordinate_number - (max_number_character - x) == x1 && h <= 2) {
-        doska[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = buff;
-        doska_b[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = 1;
+        doska[max_coordinate_number - y]
+             [max_coordinate_number - (max_number_character - x)]
+                = buff;
+        doska_b[max_coordinate_number - y]
+               [max_coordinate_number - (max_number_character - x)]
+                = 1;
         buff = "  ";
         flag_buff = false;
     } else {
@@ -117,9 +123,14 @@ bool Ppawn_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
 
 bool Rrook_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
 {
-    if (max_coordinate_number - (max_number_character - x) == x1 || max_coordinate_number - y == y1) {
-        doska[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = buff;
-        doska_b[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = 1;
+    if (max_coordinate_number - (max_number_character - x) == x1
+        || max_coordinate_number - y == y1) {
+        doska[max_coordinate_number - y]
+             [max_coordinate_number - (max_number_character - x)]
+                = buff;
+        doska_b[max_coordinate_number - y]
+               [max_coordinate_number - (max_number_character - x)]
+                = 1;
         buff = "  ";
         flag_buff = false;
     } else {
@@ -146,8 +157,12 @@ bool Nknight_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
             h1 = (max_coordinate_number - y) - y1;
         }
         if (h1 == 2) {
-            doska[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = buff;
-            doska_b[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = 1;
+            doska[max_coordinate_number - y]
+                 [max_coordinate_number - (max_number_character - x)]
+                    = buff;
+            doska_b[max_coordinate_number - y]
+                   [max_coordinate_number - (max_number_character - x)]
+                    = 1;
             buff = "  ";
             flag_buff = false;
         } else {
@@ -163,8 +178,12 @@ bool Nknight_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
             h1 = (max_coordinate_number - y) - y1;
         }
         if (h1 == 1) {
-            doska[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = buff;
-            doska_b[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = 1;
+            doska[max_coordinate_number - y]
+                 [max_coordinate_number - (max_number_character - x)]
+                    = buff;
+            doska_b[max_coordinate_number - y]
+                   [max_coordinate_number - (max_number_character - x)]
+                    = 1;
             buff = "  ";
             flag_buff = false;
         } else {
@@ -182,7 +201,8 @@ bool Nknight_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
 bool Bbishop_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
 {
     int h, h1;
-    if (x1 != max_coordinate_number - (max_number_character - x) || y1 != max_coordinate_number - y) {
+    if (x1 != max_coordinate_number - (max_number_character - x)
+        || y1 != max_coordinate_number - y) {
         if (x1 > max_coordinate_number - (max_number_character - x)) {
             h = x1 - (max_coordinate_number - (max_number_character - x));
         }
@@ -196,8 +216,12 @@ bool Bbishop_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
             h1 = (max_coordinate_number - y) - y1;
         }
         if (h == h1) {
-            doska[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = buff;
-            doska_b[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = 1;
+            doska[max_coordinate_number - y]
+                 [max_coordinate_number - (max_number_character - x)]
+                    = buff;
+            doska_b[max_coordinate_number - y]
+                   [max_coordinate_number - (max_number_character - x)]
+                    = 1;
             buff = "  ";
             flag_buff = false;
         } else {
@@ -214,9 +238,14 @@ bool Bbishop_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
 bool Qqueen_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
 {
     int h, h1;
-    if (max_coordinate_number - (max_number_character - x) == x1 || max_coordinate_number - y == y1) {
-        doska[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = buff;
-        doska_b[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = 1;
+    if (max_coordinate_number - (max_number_character - x) == x1
+        || max_coordinate_number - y == y1) {
+        doska[max_coordinate_number - y]
+             [max_coordinate_number - (max_number_character - x)]
+                = buff;
+        doska_b[max_coordinate_number - y]
+               [max_coordinate_number - (max_number_character - x)]
+                = 1;
         buff = "  ";
         flag_buff = false;
     } else {
@@ -233,8 +262,12 @@ bool Qqueen_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
             h1 = (max_coordinate_number - y) - y1;
         }
         if (h == h1) {
-            doska[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = buff;
-            doska_b[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = 1;
+            doska[max_coordinate_number - y]
+                 [max_coordinate_number - (max_number_character - x)]
+                    = buff;
+            doska_b[max_coordinate_number - y]
+                   [max_coordinate_number - (max_number_character - x)]
+                    = 1;
             buff = "  ";
             flag_buff = false;
         } else {
@@ -266,8 +299,12 @@ void Kking_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
             h1 = (max_coordinate_number - y) - y1;
         }
         if (h1 == 1) {
-            doska[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = buff;
-            doska_b[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = 1;
+            doska[max_coordinate_number - y]
+                 [max_coordinate_number - (max_number_character - x)]
+                    = buff;
+            doska_b[max_coordinate_number - y]
+                   [max_coordinate_number - (max_number_character - x)]
+                    = 1;
             buff = "  ";
             flag_buff = false;
         } else {
@@ -288,14 +325,22 @@ void Kking_hod(int x, int y, int& x1, int& y1, bool& flag_buff)
         }
 
         if (h1 == 1) {
-            doska[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = buff;
-            doska_b[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = 1;
+            doska[max_coordinate_number - y]
+                 [max_coordinate_number - (max_number_character - x)]
+                    = buff;
+            doska_b[max_coordinate_number - y]
+                   [max_coordinate_number - (max_number_character - x)]
+                    = 1;
             buff = "  ";
             flag_buff = false;
         }
         if (h1 == 0) {
-            doska[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = buff;
-            doska_b[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = 1;
+            doska[max_coordinate_number - y]
+                 [max_coordinate_number - (max_number_character - x)]
+                    = buff;
+            doska_b[max_coordinate_number - y]
+                   [max_coordinate_number - (max_number_character - x)]
+                    = 1;
             buff = "  ";
             flag_buff = false;
         } else {
@@ -326,11 +371,16 @@ void doska_hod(int x, int y, int& x1, int& y1, int& sum_hod, bool& flag_buff)
     if (x > 104 || x < 97) {
         cout << "Неправильный ввод хода: ушли за границы доски по х\n";
     } else {
-        if (doska_b[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] == 1) {
+        if (doska_b[max_coordinate_number - y]
+                   [max_coordinate_number - (max_number_character - x)]
+            == 1) {
             coordinate_1figura(x, y, x1, y1);
-            buff = doska[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)];
+            buff = doska[max_coordinate_number - y]
+                        [max_coordinate_number - (max_number_character - x)];
             doska_figura_remove(x, y);
-            doska_b[max_coordinate_number - y][max_coordinate_number - (max_number_character - x)] = 0;
+            doska_b[max_coordinate_number - y]
+                   [max_coordinate_number - (max_number_character - x)]
+                    = 0;
             flag_buff = true;
         } else {
             if (flag_buff == true) {
