@@ -7,7 +7,7 @@ CPPFLAGS = -I src -MP -MMD
 CPPFLAGS_TEST = -I thirdparty -I src -MP -MMD
 LDFLAGS =
 LDLIBS = -lm
-CC = g++
+CXX = g++
 
 BIN_DIR = bin
 OBJ_DIR = obj
@@ -41,16 +41,16 @@ all: $(APP_PATH)
 
 
 $(APP_PATH): $(APP_OBJECTS) $(LIB_PATH)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
+	$(CXX) $(CFLAGS) $(CPPFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
 
 $(LIB_PATH): $(LIB_OBJECTS)
 	ar rcs $@ $^
 
 $(OBJ_DIR)/$(SRC_DIR)/$(APP_NAME)/%.o: $(SRC_DIR)/$(APP_NAME)/%.cpp
-	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@ $(LDLIBS)
+	$(CXX) -c $(CFLAGS) $(CPPFLAGS) $< -o $@ $(LDLIBS)
 
 $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/%.o: $(SRC_DIR)/$(LIB_NAME)/%.cpp
-	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@ $(LDLIBS)
+	$(CXX) -c $(CFLAGS) $(CPPFLAGS) $< -o $@ $(LDLIBS)
 
 .PHONY: clean
 clean:
@@ -63,7 +63,7 @@ test: $(APP_PATH_TEST)
 -include $(DEPS_TEST)
 
 $(APP_PATH_TEST): $(APP_OBJECTS_TEST) $(LIB_PATH)
-	$(CC) $(CFLAGS) $(CPPFLAGS_TEST) $^ -o $@ $(LDFLAGS) $(LDLIBS)
+	$(CXX) $(CFLAGS) $(CPPFLAGS_TEST) $^ -o $@ $(LDFLAGS) $(LDLIBS)
 
 $(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.cpp
-	$(CC) -c $(CFLAGS) $(CPPFLAGS_TEST) $< -o $@ $(LDLIBS)
+	$(CXX) -c $(CFLAGS) $(CPPFLAGS_TEST) $< -o $@ $(LDLIBS)
