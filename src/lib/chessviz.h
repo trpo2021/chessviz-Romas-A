@@ -9,5 +9,5 @@ bool Nknight_hod(int x, int y, int& x1, int& y1, bool& flag_buff);
 bool Bbishop_hod(int x, int y, int& x1, int& y1, bool& flag_buff);
 bool Qqueen_hod(int x, int y, int& x1, int& y1, bool& flag_buff);
 void Kking_hod(int x, int y, int& x1, int& y1, bool& flag_buff);
-int mamba(int x, int y, int& x1, int& y1);
+int coordinate_1figura(int x, int y, int& x1, int& y1);
 void doska_hod(int x, int y, int& x1, int& y1, int& sum_hod, bool& flag_buff);
