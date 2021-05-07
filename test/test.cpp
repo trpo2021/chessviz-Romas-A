@@ -117,7 +117,7 @@ CTEST(znacheniya, 11test)
     int x = 102;
     int y1 = 0;
     int x1 = 0;
-    int real = mamba(x, y, x1, y1);
+    int real = coordinate_1figura(x, y, x1, y1);
     int exp = 11;
     ASSERT_EQUAL(exp, real);
 }
